@@ -2,5 +2,13 @@
 // @import 'normalize';
 
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+$orange: #f60;
+$dark-gray: #5e6d70;
+$light-gray: #f2f2f3;
+
 @import 'font-awesome';
 @import 'box-sizing';
+@import 'header';
+@import 'footer';
+@import 'app-main';
+@import 'form';
