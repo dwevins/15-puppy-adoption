@@ -1,11 +1,13 @@
-.app-form {
+.form {
   width: 100%;
   padding: $gutter;
-  background: $dark-gray;
-  color: $white;
 
   &__field {
     width: 100%;
+
+    &--title {
+      margin: 0;
+    }
 
     &--input {
       width: 100%;
@@ -14,5 +16,10 @@
       outline: none;
       background-color: inherit;
     }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
   }
 }
