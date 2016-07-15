@@ -1,4 +1,11 @@
 .app-header {
   width: 100%;
+  padding: $gutter;
   background: $orange;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+  }
 }

@@ -11,3 +11,8 @@ html {
     box-sizing: inherit;
   }
 }
+
+.container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
