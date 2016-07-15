@@ -1,0 +1,18 @@
+.app-form {
+  width: 100%;
+  padding: $gutter;
+  background: $dark-gray;
+  color: $white;
+
+  &__field {
+    width: 100%;
+
+    &--input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $black;
+      outline: none;
+      background-color: inherit;
+    }
+  }
+}
