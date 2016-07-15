@@ -16,20 +16,29 @@
 }
 
 .item-image {
+  display: flex;
+  align-items: center;
 
-  &__img {
-    width: 100%;
+  &__container {
+
+    &--img {
+      width: 100%;
+    }
   }
 }
 
-.details-field {
+.item-details {
   flex-grow: 1;
 
-  &__input {
+  &__field {
     width: 100%;
-    border: 0;
-    border-bottom: 1px solid $black;
-    outline: none;
-    background-color: inherit;
+
+    &--input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $black;
+      outline: none;
+      background-color: inherit;
+    }
   }
 }
