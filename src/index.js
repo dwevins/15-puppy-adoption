@@ -1,7 +1,7 @@
 'use strict';
-import applicationView from 'application-view';
+import ApplicationView from 'application-view';
 
-export default function (element) {
-    view = new applicationView(element)
-    view.render();
+export default function Index(element) {
+  const view = new ApplicationView(element);
+  view.render();
 }
