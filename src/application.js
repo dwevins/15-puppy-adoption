@@ -4,41 +4,43 @@ import PuppyView from 'puppy-view';
 import CreateFormView from 'create-form-view';
 
 export default class ApplicationView {
-  constructor(app) {
+  constructor(element) {
     this.data = [];
-    this.app = app;
+    this.element = element;
     // this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
     this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/ryan-puppy';
-    this.list = app.querySelector('.app-list');
-    this.view = '';
+    this.list = element.querySelector('.app-list');
+    this.view = new CreateFormView(this.element, this);
   }
 
   start() {
-    this.view = new CreateFormView(this.app, this);
-    this.getFetch();
-    this.render();
+    this.getFetch()
+      .then(() => {
+        this.render();
+      });
+  }
+
+  getFetch() {
+    return fetch(this.fetchURL)
+      .then((res) => res.json())
+      .then((data) => {
+        this.data = data;
+      });
   }
 
   render() {
     this.list.innerHTML = '';
-    this.data = this.data.map((obj) => new PuppyView(obj, this.app));
+    this.data = this.data.map((obj) => new PuppyView(obj, this.element));
   }
 
-  getFetch() {
-    fetch(this.fetchURL)
-      .then((res) => res.json())
-      .then((array) => {
-        array.forEach((object) => {
-          this.data.push(object);
-        });
-      });
+  add(puppy) {
+    //also add to server
+    this.data.push(puppy);
   }
 
-  add() {
-
-  }
-
-  remove() {
-
+  remove(id) {
+    // also delete from server
+    this.data = this.data.filter((puppy) => puppy.id !== id);
+    this.render();
   }
 }

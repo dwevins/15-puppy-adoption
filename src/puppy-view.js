@@ -60,4 +60,12 @@ export default class PuppyView {
     adoptBtn.addEventListener('click', this.adopt());
     updateBtn.addEventListener('click', this.update());
   }
+
+  adopt() {
+
+  }
+
+  update() {
+
+  }
 }
