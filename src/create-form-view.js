@@ -18,4 +18,8 @@ export default class CreateFormView {
     const isHidden = this.form.classList.contains('hidden');
     this.form.classList.toggle('hidden', isHidden);
   }
+
+  saveForm() {
+
+  }
 }
