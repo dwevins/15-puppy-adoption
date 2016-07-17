@@ -1,22 +1,25 @@
 'use strict';
 
 export default class CreateFormView {
-  constructor(app, form) {
+  constructor(parent, app) {
     this.app = app;
-    this.form = form;
-    this.show = this.app.querySelector('.show');
-    this.save = this.form.querySelector('.save');
+    this.form = parent.querySelector('.dropdown');
+    this.show = parent.querySelector('.show');
+    this.save = parent.querySelector('.save');
     this.addButtons();
   }
 
   addButtons() {
-    this.show.addEventListener('click', this.showForm());
-    this.save.addEventListener('click', this.saveForm());
+    this.show.addEventListener('click', () => { this.showForm(); });
+    this.save.addEventListener('click', () => { this.saveForm(); });
   }
 
   showForm() {
-    const isHidden = this.form.classList.contains('hidden');
-    this.form.classList.toggle('hidden', isHidden);
+    if (this.form.classList.contains('hidden')) {
+      this.form.classList.remove('hidden');
+    } else {
+      this.form.classList.add('hidden');
+    }
   }
 
   saveForm() {
