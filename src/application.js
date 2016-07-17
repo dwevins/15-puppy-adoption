@@ -7,17 +7,20 @@ export default class ApplicationView {
   constructor(app) {
     this.data = [];
     this.app = app;
-    this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
-    this.List = app.querySelector('.app-list');
+    // this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
+    this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/ryan-puppy';
+    this.list = app.querySelector('.app-list');
     this.view = '';
   }
 
   start() {
     this.view = new CreateFormView(this.app, this);
+    this.getFetch();
     this.render();
   }
 
   render() {
+    this.list.innerHTML = '';
     this.data.map((obj) => {
       return new PuppyView(obj, this.app);
     });

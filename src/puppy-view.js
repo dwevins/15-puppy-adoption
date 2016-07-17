@@ -5,7 +5,7 @@ export default class PuppyView {
     this.puppy = puppy;
     this.app = app;
     this.puppyCard = document.createElement('li');
-    this.populateCard();
+    this.render();
   }
 
   render() {
