@@ -4,22 +4,22 @@ import PuppyView from 'puppy-view';
 import CreateFormView from 'create-form-view';
 
 export default class ApplicationView {
-  constructor(parent) {
+  constructor(app) {
     this.data = [];
-    this.parent = parent;
+    this.app = app;
     this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
-    this.List = parent.querySelector('.app-list');
+    this.List = app.querySelector('.app-list');
     this.view = '';
   }
 
   start() {
-    this.view = new CreateFormView(this.parent, this);
+    this.view = new CreateFormView(this.app, this);
     this.render();
   }
 
   render() {
     this.data.map((obj) => {
-      return new PuppyView(obj, this.parent);
+      return new PuppyView(obj, this.app);
     });
   }
 
