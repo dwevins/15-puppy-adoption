@@ -18,7 +18,7 @@ export default class PuppyView {
     this.puppyCard.innerHTML = `
     <div class="item-image">
       <div class="item-image__container">
-        <img src="" alt="" class="item-image__container--img">
+        <img src="" alt="" class="item-image__container--img image">
       </div>
     </div>
     <div class="item-details form">
@@ -46,8 +46,8 @@ export default class PuppyView {
   }
 
   fillCardInfo() {
-    this.puppyCard.querySelector('.item-image__container--img').setAttribute('src', `${this.puppy.photoURL}`);
-    this.puppyCard.querySelector('.item-image__container--img').setAttribute('alt', 'sweet l\'il pupper');
+    this.puppyCard.querySelector('.image').setAttribute('src', `${this.puppy.photoURL}`);
+    this.puppyCard.querySelector('.image').setAttribute('alt', 'sweet l\'il pupper');
     this.puppyCard.querySelector('.name').setAttribute('default', `${this.puppy.name}`);
     this.puppyCard.querySelector('.age').setAttribute('default', `${this.puppy.age}`);
     this.puppyCard.querySelector('.photo').setAttribute('default', `${this.puppy.photoURL}`);
@@ -55,6 +55,9 @@ export default class PuppyView {
   }
 
   addButtons() {
-
+    const adoptBtn = this.puppyCard.querySelector('.adopt');
+    const updateBtn = this.puppyCard.querySelector('.update');
+    adoptBtn.addEventListener('click', this.adopt());
+    updateBtn.addEventListener('click', this.update());
   }
 }
