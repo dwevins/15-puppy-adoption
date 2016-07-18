@@ -29,7 +29,7 @@ export default class ApplicationView {
 
   render() {
     this.list.innerHTML = '';
-    this.data = this.data.map((obj) => new PuppyView(obj, this.element));
+    this.data = this.data.map((obj) => new PuppyView(obj, this));
   }
 
   add(puppy) {
