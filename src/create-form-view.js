@@ -41,8 +41,16 @@ export default class CreateFormView {
     })
     .then((res) => res.json())
     .then((data) => {
+      this.clearForm();
       this.showForm();
       this.app.add(data);
     });
+  }
+
+  clearForm() {
+    this.form.querySelector('.name-input').value = '';
+    this.form.querySelector('.age-input').value = '';
+    this.form.querySelector('.photoURL-input').value = '';
+    this.form.querySelector('.profile-input').value = '';
   }
 }
