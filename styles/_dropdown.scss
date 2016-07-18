@@ -6,6 +6,13 @@
   &__instruction {
     margin-top: 0;
   }
+
+  &__field {
+
+    &--input {
+      color: $white;
+    }
+  }
 }
 
 .hidden {
