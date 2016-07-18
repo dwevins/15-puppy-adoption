@@ -39,9 +39,10 @@ export default class CreateFormView {
       },
       body: JSON.stringify(this.formValues),
     })
-    .then(() => {
+    .then((res) => res.json())
+    .then((data) => {
       this.showForm();
-      this.app.add(this.formValues);
+      this.app.add(data);
     });
   }
 }

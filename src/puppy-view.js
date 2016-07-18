@@ -34,7 +34,7 @@ export default class PuppyView {
           </div>
           <div class="item-details__field">
             <p class="item-details__field--title form__field--title">Photo URL</p>
-            <input type="text" class="item-details__field--input form__field--input photo">
+            <input type="text" class="item-details__field--input form__field--input photoURL">
           </div>
           <div class="item-details__field">
             <p class="item-details__field--title form__field--title">Profile</p>
@@ -53,7 +53,7 @@ export default class PuppyView {
     this.puppyCard.querySelector('.image').setAttribute('alt', 'sweet l\'il pupper');
     this.puppyCard.querySelector('.name').defaultValue = `${this.puppy.name}`;
     this.puppyCard.querySelector('.age').defaultValue = `${this.puppy.age}`;
-    this.puppyCard.querySelector('.photo').defaultValue = `${this.puppy.photoURL}`;
+    this.puppyCard.querySelector('.photoURL').defaultValue = `${this.puppy.photoURL}`;
     this.puppyCard.querySelector('.profile').defaultValue = `${this.puppy.profile}`;
   }
 
@@ -78,7 +78,20 @@ export default class PuppyView {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(this.puppy),
+      body: JSON.stringify({
+        _id: this.puppy._id,
+        name: this.puppyCard.querySelector('.name').value,
+        age: this.puppyCard.querySelector('.age').value,
+        photoURL: this.puppyCard.querySelector('.photoURL').value,
+        profile: this.puppyCard.querySelector('.profile').value,
+      }),
+    })
+    .then(() => {
+      this.app.update(this);
     });
+  }
+
+  puppyReassign(puppy) {
+    this.puppy = puppy;
   }
 }

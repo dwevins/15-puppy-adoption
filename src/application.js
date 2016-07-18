@@ -15,6 +15,7 @@ export default class ApplicationView {
   start() {
     this.getFetch()
       .then(() => {
+        this.data = this.data.map((obj) => new PuppyView(obj, this));
         this.render();
       });
   }
@@ -29,20 +30,30 @@ export default class ApplicationView {
 
   render() {
     this.list.innerHTML = '';
-    const dataAsPuppies = this.data.map((obj) => new PuppyView(obj, this));
 
-    dataAsPuppies.forEach((puppy) => {
+    this.data.forEach((puppy) => {
       this.list.appendChild(puppy.puppyCard);
     });
   }
 
   add(puppy) {
-    this.data.unshift(puppy);
+    const newPuppy = new PuppyView(puppy, this);
+    this.data.unshift(newPuppy);
     this.render();
   }
 
   remove(id) {
-    this.data = this.data.filter((puppy) => puppy._id !== id);
+    this.data = this.data.filter((puppy) => puppy.puppy._id !== id);
+    this.render();
+  }
+
+  update(puppyIn) {
+    this.data.forEach((currPuppy) => {
+      if (puppyIn.puppy._id === currPuppy.puppy._id) {
+        currPuppy.puppyReassign(puppyIn.puppy);
+      }
+    });
+
     this.render();
   }
 }
