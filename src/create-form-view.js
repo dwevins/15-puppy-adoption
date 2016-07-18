@@ -41,7 +41,7 @@ export default class CreateFormView {
     })
     .then(() => {
       this.showForm();
-      this.app.render();
+      this.app.add(this.formValues);
     });
   }
 }

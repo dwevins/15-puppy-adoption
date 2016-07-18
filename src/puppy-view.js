@@ -68,7 +68,7 @@ export default class PuppyView {
     fetch(this.fetchURL, {
       method: 'delete',
     });
-    this.app.remove(this.puppy.id);
+    this.app.remove(this.puppy._id);
   }
 
   update() {

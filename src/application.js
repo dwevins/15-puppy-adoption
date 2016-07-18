@@ -29,20 +29,20 @@ export default class ApplicationView {
 
   render() {
     this.list.innerHTML = '';
-    this.dataAsPuppies = this.data.map((obj) => new PuppyView(obj, this));
+    const dataAsPuppies = this.data.map((obj) => new PuppyView(obj, this));
 
-    this.dataAsPuppies.forEach((puppy) => {
+    dataAsPuppies.forEach((puppy) => {
       this.list.appendChild(puppy.puppyCard);
     });
   }
 
   add(puppy) {
-    this.data.push(puppy);
+    this.data.unshift(puppy);
     this.render();
   }
 
   remove(id) {
-    this.data = this.data.filter((puppy) => puppy.id !== id);
+    this.data = this.data.filter((puppy) => puppy._id !== id);
     this.render();
   }
 }
