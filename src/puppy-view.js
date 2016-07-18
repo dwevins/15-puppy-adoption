@@ -16,31 +16,33 @@ export default class PuppyView {
 
   generateCardSkeleton() {
     this.puppyCard.innerHTML = `
-    <div class="item-image">
-      <div class="item-image__container">
-        <img src="" alt="" class="item-image__container--img image">
+    <div class="app-list__item">
+      <div class="item-image">
+        <div class="item-image__container">
+          <img src="" alt="" class="item-image__container--img image">
+        </div>
       </div>
-    </div>
-    <div class="item-details form">
-        <div class="item-details__field form__field">
-          <p class="item-details__field--title form__field--title">Name</p>
-          <input type="text" class="item-details__field--input form__field--input name">
+      <div class="item-details form">
+          <div class="item-details__field form__field">
+            <p class="item-details__field--title form__field--title">Name</p>
+            <input type="text" class="item-details__field--input form__field--input name">
+          </div>
+          <div class="item-details__field">
+            <p class="item-details__field--title form__field--title">Age</p>
+            <input type="text" class="item-details__field--input form__field--input age">
+          </div>
+          <div class="item-details__field">
+            <p class="item-details__field--title form__field--title">Photo URL</p>
+            <input type="text" class="item-details__field--input form__field--input photo">
+          </div>
+          <div class="item-details__field">
+            <p class="item-details__field--title form__field--title">Profile</p>
+            <input type="text" class="item-details__field--input form__field--input profile">
+          </div>
+        <div class="item-details__buttons form__buttons">
+          <button class="details-btn form__buttons--btn adopt">Adopt</button>
+          <button class="details-btn form__buttons--btn update">Update</button>
         </div>
-        <div class="item-details__field">
-          <p class="item-details__field--title form__field--title">Age</p>
-          <input type="text" class="item-details__field--input form__field--input age">
-        </div>
-        <div class="item-details__field">
-          <p class="item-details__field--title form__field--title">Photo URL</p>
-          <input type="text" class="item-details__field--input form__field--input photo">
-        </div>
-        <div class="item-details__field">
-          <p class="item-details__field--title form__field--title">Profile</p>
-          <input type="text" class="item-details__field--input form__field--input profile">
-        </div>
-      <div class="item-details__buttons form__buttons">
-        <button class="details-btn form__buttons--btn adopt">Adopt</button>
-        <button class="details-btn form__buttons--btn update">Update</button>
       </div>
     </div>`;
   }
