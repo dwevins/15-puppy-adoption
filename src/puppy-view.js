@@ -50,10 +50,10 @@ export default class PuppyView {
   fillCardInfo() {
     this.puppyCard.querySelector('.image').setAttribute('src', `${this.puppy.photoURL}`);
     this.puppyCard.querySelector('.image').setAttribute('alt', 'sweet l\'il pupper');
-    this.puppyCard.querySelector('.name').setAttribute('default', `${this.puppy.name}`);
-    this.puppyCard.querySelector('.age').setAttribute('default', `${this.puppy.age}`);
-    this.puppyCard.querySelector('.photo').setAttribute('default', `${this.puppy.photoURL}`);
-    this.puppyCard.querySelector('.profile').setAttribute('default', `${this.puppy.profile}`);
+    this.puppyCard.querySelector('.name').defaultValue = `${this.puppy.name}`;
+    this.puppyCard.querySelector('.age').defaultValue = `${this.puppy.age}`;
+    this.puppyCard.querySelector('.photo').defaultValue = `${this.puppy.photoURL}`;
+    this.puppyCard.querySelector('.profile').defaultValue = `${this.puppy.profile}`;
   }
 
   addButtons() {
