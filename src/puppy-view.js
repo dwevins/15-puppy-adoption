@@ -59,12 +59,15 @@ export default class PuppyView {
   addButtons() {
     const adoptBtn = this.puppyCard.querySelector('.adopt');
     const updateBtn = this.puppyCard.querySelector('.update');
-    adoptBtn.addEventListener('click', this.adopt());
-    updateBtn.addEventListener('click', this.update());
+    adoptBtn.addEventListener('click', () => { this.adopt(); });
+    updateBtn.addEventListener('click', () => { this.update(); });
   }
 
-  adopt(id) {
-    this.app.remove(id);
+  adopt() {
+    fetch(`${this.app.fetchURL}/${this.puppy._id}`, {
+      method: 'delete',
+    });
+    this.app.remove(this.puppy.id);
   }
 
   update() {

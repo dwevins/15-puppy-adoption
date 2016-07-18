@@ -38,8 +38,10 @@ export default class CreateFormView {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(this.formValues),
+    })
+    .then(() => {
+      this.showForm();
+      this.app.render();
     });
-
-    this.app.render();
   }
 }

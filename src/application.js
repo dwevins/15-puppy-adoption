@@ -29,8 +29,8 @@ export default class ApplicationView {
 
   render() {
     this.list.innerHTML = '';
-    this.data = this.data.map((obj) => new PuppyView(obj, this));
-    this.data.forEach((puppy) => {
+    this.dataAsPuppies = this.data.map((obj) => new PuppyView(obj, this));
+    this.dataAsPuppies.forEach((puppy) => {
       this.list.appendChild(puppy.puppyCard);
     });
   }
@@ -41,7 +41,6 @@ export default class ApplicationView {
   }
 
   remove(id) {
-    // also delete from server
     this.data = this.data.filter((puppy) => puppy.id !== id);
     this.render();
   }
