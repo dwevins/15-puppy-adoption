@@ -30,6 +30,9 @@ export default class ApplicationView {
   render() {
     this.list.innerHTML = '';
     this.data = this.data.map((obj) => new PuppyView(obj, this));
+    this.data.forEach((puppy) => {
+      this.list.appendChild(puppy.puppyCard);
+    });
   }
 
   add(puppy) {
