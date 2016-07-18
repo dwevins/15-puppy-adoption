@@ -30,14 +30,15 @@ export default class ApplicationView {
   render() {
     this.list.innerHTML = '';
     this.dataAsPuppies = this.data.map((obj) => new PuppyView(obj, this));
+
     this.dataAsPuppies.forEach((puppy) => {
       this.list.appendChild(puppy.puppyCard);
     });
   }
 
   add(puppy) {
-    // also add to server
     this.data.push(puppy);
+    this.render();
   }
 
   remove(id) {

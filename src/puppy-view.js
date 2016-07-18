@@ -6,6 +6,7 @@ export default class PuppyView {
     this.app = app;
     this.puppyCard = document.createElement('li');
     this.render();
+    this.fetchURL = `${this.app.fetchURL}/${this.puppy._id}`;
   }
 
   render() {
@@ -64,13 +65,20 @@ export default class PuppyView {
   }
 
   adopt() {
-    fetch(`${this.app.fetchURL}/${this.puppy._id}`, {
+    fetch(this.fetchURL, {
       method: 'delete',
     });
     this.app.remove(this.puppy.id);
   }
 
   update() {
-
+    fetch(this.fetchURL, {
+      method: 'put',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.puppy),
+    });
   }
 }
