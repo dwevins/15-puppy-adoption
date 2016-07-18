@@ -7,8 +7,7 @@ export default class ApplicationView {
   constructor(element) {
     this.data = [];
     this.element = element;
-    // this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
-    this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/ryan-puppy';
+    this.fetchURL = 'http://tiny-tn.herokuapp.com/collections/dwe-puppies';
     this.list = element.querySelector('.app-list');
     this.view = new CreateFormView(this.element, this);
   }
@@ -34,7 +33,7 @@ export default class ApplicationView {
   }
 
   add(puppy) {
-    //also add to server
+    // also add to server
     this.data.push(puppy);
   }
 

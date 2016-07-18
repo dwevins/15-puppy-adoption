@@ -61,8 +61,8 @@ export default class PuppyView {
     updateBtn.addEventListener('click', this.update());
   }
 
-  adopt() {
-
+  adopt(id) {
+    this.app.remove(id);
   }
 
   update() {
