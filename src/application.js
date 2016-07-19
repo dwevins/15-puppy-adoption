@@ -15,7 +15,6 @@ export default class ApplicationView {
   start() {
     this.getFetch()
       .then(() => {
-        this.data = this.data.map((obj) => new PuppyView(obj, this));
         this.render();
       });
   }
@@ -29,6 +28,7 @@ export default class ApplicationView {
   }
 
   render() {
+    this.data = this.data.map((obj) => new PuppyView(obj, this));
     this.list.innerHTML = '';
 
     this.data.forEach((puppy) => {
