@@ -48,9 +48,7 @@ export default class ApplicationView {
 
   update(puppyIn) {
     this.data.forEach((currPuppy) => {
-      if (puppyIn.puppy._id === currPuppy.puppy._id) {
-        currPuppy.puppyReassign(puppyIn.puppy);
-      }
+
     });
 
     this.render();
