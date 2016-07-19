@@ -65,8 +65,12 @@ export default class PuppyView {
   addButtons() {
     const adoptBtn = this.puppyCard.querySelector('.adopt');
     const updateBtn = this.puppyCard.querySelector('.update');
-    adoptBtn.addEventListener('click', () => { this.adopt(); });
-    updateBtn.addEventListener('click', () => { this.update(); });
+    adoptBtn.addEventListener('click', () => {
+      this.adopt();
+    });
+    updateBtn.addEventListener('click', () => {
+      this.update();
+    });
   }
 
   adopt() {
@@ -78,22 +82,22 @@ export default class PuppyView {
 
   update() {
     fetch(this.fetchURL, {
-      method: 'put',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        _id: this.id,
-        name: this.puppyCard.querySelector('.name').value,
-        age: this.puppyCard.querySelector('.age').value,
-        photoURL: this.puppyCard.querySelector('.photoURL').value,
-        profile: this.puppyCard.querySelector('.profile').value,
-      }),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      this.app.update(data);
-    });
+        method: 'put',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          _id: this.id,
+          name: this.puppyCard.querySelector('.name').value,
+          age: this.puppyCard.querySelector('.age').value,
+          photoURL: this.puppyCard.querySelector('.photoURL').value,
+          profile: this.puppyCard.querySelector('.profile').value,
+        }),
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        this.app.update(data);
+      });
   }
 }

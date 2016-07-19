@@ -10,8 +10,12 @@ export default class CreateFormView {
   }
 
   addButtons() {
-    this.show.addEventListener('click', () => { this.showForm(); });
-    this.save.addEventListener('click', () => { this.saveForm(); });
+    this.show.addEventListener('click', () => {
+      this.showForm();
+    });
+    this.save.addEventListener('click', () => {
+      this.saveForm();
+    });
   }
 
   showForm() {
@@ -31,19 +35,19 @@ export default class CreateFormView {
     };
 
     fetch(this.app.fetchURL, {
-      method: 'post',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formValues),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      this.clearForm();
-      this.showForm();
-      this.app.add(data);
-    });
+        method: 'post',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues),
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        this.clearForm();
+        this.showForm();
+        this.app.add(data);
+      });
   }
 
   clearForm() {
