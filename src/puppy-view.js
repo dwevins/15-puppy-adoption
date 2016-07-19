@@ -2,11 +2,15 @@
 
 export default class PuppyView {
   constructor(puppy, app) {
-    this.puppy = puppy;
     this.app = app;
+    this.id = puppy._id;
+    this.name = puppy.name;
+    this.age = puppy.age;
+    this.photoURL = puppy.photoURL;
+    this.profile = puppy.profile;
     this.puppyCard = document.createElement('li');
+    this.fetchURL = `${this.app.fetchURL}/${this.id}`;
     this.render();
-    this.fetchURL = `${this.app.fetchURL}/${this.puppy._id}`;
   }
 
   render() {
@@ -49,12 +53,12 @@ export default class PuppyView {
   }
 
   fillCardInfo() {
-    this.puppyCard.querySelector('.image').setAttribute('src', `${this.puppy.photoURL}`);
+    this.puppyCard.querySelector('.image').setAttribute('src', `${this.photoURL}`);
     this.puppyCard.querySelector('.image').setAttribute('alt', 'sweet l\'il pupper');
-    this.puppyCard.querySelector('.name').defaultValue = `${this.puppy.name}`;
-    this.puppyCard.querySelector('.age').defaultValue = `${this.puppy.age}`;
-    this.puppyCard.querySelector('.photoURL').defaultValue = `${this.puppy.photoURL}`;
-    this.puppyCard.querySelector('.profile').defaultValue = `${this.puppy.profile}`;
+    this.puppyCard.querySelector('.name').defaultValue = `${this.name}`;
+    this.puppyCard.querySelector('.age').defaultValue = `${this.age}`;
+    this.puppyCard.querySelector('.photoURL').defaultValue = `${this.photoURL}`;
+    this.puppyCard.querySelector('.profile').defaultValue = `${this.profile}`;
   }
 
   addButtons() {
@@ -68,7 +72,7 @@ export default class PuppyView {
     fetch(this.fetchURL, {
       method: 'delete',
     });
-    this.app.remove(this.puppy._id);
+    this.app.remove(this.id);
   }
 
   update() {
@@ -79,19 +83,16 @@ export default class PuppyView {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        _id: this.puppy._id,
+        _id: this.id,
         name: this.puppyCard.querySelector('.name').value,
         age: this.puppyCard.querySelector('.age').value,
         photoURL: this.puppyCard.querySelector('.photoURL').value,
         profile: this.puppyCard.querySelector('.profile').value,
       }),
     })
-    .then(() => {
-      this.app.update(this);
+    .then((res) => res.json())
+    .then((data) => {
+      this.app.update(data);
     });
-  }
-
-  puppyReassign(puppy) {
-    this.puppy = puppy;
   }
 }
