@@ -28,22 +28,21 @@ export default class ApplicationView {
   }
 
   render() {
-    this.data = this.data.map((obj) => new PuppyView(obj, this));
     this.list.innerHTML = '';
 
     this.data.forEach((puppy) => {
-      this.list.appendChild(puppy.puppyCard);
+      const newPup = new PuppyView(puppy, this);
+      this.list.appendChild(newPup.puppyCard);
     });
   }
 
   add(puppy) {
-    const newPuppy = new PuppyView(puppy, this);
-    this.data.unshift(newPuppy);
+    this.data = [puppy, ...this.data];
     this.render();
   }
 
   remove(id) {
-    this.data = this.data.filter((puppy) => puppy.puppy._id !== id);
+    this.data = this.data.filter((puppy) => puppy._id !== id);
     this.render();
   }
 
