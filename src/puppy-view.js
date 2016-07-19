@@ -3,6 +3,7 @@
 export default class PuppyView {
   constructor(puppy, app) {
     this.app = app;
+    this.puppy = puppy;
     this.id = puppy._id;
     this.name = puppy.name;
     this.age = puppy.age;

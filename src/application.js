@@ -47,17 +47,12 @@ export default class ApplicationView {
   }
 
   update(puppyIn) {
-    this.data.forEach((currPuppy) => {
-      console.log('searching');
+    this.data = this.data.map((currPuppy) => {
       if (puppyIn._id === currPuppy._id) {
-        console.log ('found');
-        currPuppy.name = puppyIn.name;
-        currPuppy.age = puppyIn.age;
-        currPuppy.photoURL = puppyIn.photoURL;
-        currPuppy.profile = puppyIn.profile;
+        return puppyIn;
       }
-    });
 
-    this.render();
+      return currPuppy;
+    });
   }
 }
