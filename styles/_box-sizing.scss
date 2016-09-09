@@ -2,12 +2,19 @@
 html {
   box-sizing: border-box;
 }
-
 * {
   box-sizing: inherit;
-
-  &:before,
-  &:after {
+  &:after,
+  &:before {
     box-sizing: inherit;
   }
+}
+.container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

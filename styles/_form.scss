@@ -1,0 +1,33 @@
+.form {
+
+  &__field {
+
+    &--title {
+      margin: 0;
+    }
+
+    &--input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid $black;
+      outline: none;
+      background-color: inherit;
+      font-size: 1rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $gutter;
+
+    &--btn {
+      padding: 0.3 * $gutter;
+      border: 0;
+      border-radius: 5px;
+      background-color: $orange;
+      color: $white;
+      font-size: 1rem;
+    }
+  }
+}

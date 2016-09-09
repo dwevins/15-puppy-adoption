@@ -1,0 +1,19 @@
+.dropdown {
+  padding: 0.5 * $gutter $gutter;
+  background: $dark-gray;
+  color: $white;
+
+  &__instruction {
+    margin-top: 0;
+  }
+
+  &__field {
+    &--input {
+      color: $white;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

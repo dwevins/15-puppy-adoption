@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>15-puppy-adoption</title>
   <link rel="stylesheet" href="/app.css">
 </head>
-<body>
 
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="container">
+        <div class="app-header__content">
+          <h1 class="app-header__title">Puppies</h1>
+          <button class="app-header__button show">
+            <span class="fa fa-plus-circle"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="dropdown hidden">
+      <div class="container">
+        <h2 class="dropdown__instruction">Add a new puppy</h2>
+        <div class="form">
+          <div class="dropdown__field form__field">
+            <p class="dropdown__field--title form__field--title">Name</p>
+            <input type="text" class="dropdown__field--input form__field--input name-input">
+          </div>
+          <div class="dropdown__field form__field">
+            <p class="dropdown__field--title form__field--title">Age</p>
+            <input type="text" class="dropdown__field--input form__field--input age-input">
+          </div>
+          <div class="dropdown__field form__field">
+            <p class="dropdown__field--title form__field--title">Photo URL</p>
+            <input type="text" class="dropdown__field--input form__field--input photoURL-input">
+          </div>
+          <div class="dropdown__field form__field">
+            <p class="dropdown__field--title form__field--title">Profile</p>
+            <input type="text" class="dropdown__field--input form__field--input profile-input">
+          </div>
+          <div class="dropdown__button form__buttons">
+            <button class="dropdown__button--btn form__buttons--btn save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="app-main">
+      <div class="container">
+        <ul class="app-list">
+
+        </ul>
+      </div>
+    </main>
+    <footer class="app-footer">
+      <div class="container">
+        <p class="credits">Coded by Woody Evins</p>
+      </div>
+    </footer>
+  </div>
   <script src="/vendor.js" charset="utf-8"></script>
   <script src="/app.js" charset="utf-8"></script>
 
   <script type="text/javascript">
+    const index = require('index');
+    const app = document.querySelector('.app');
+    index(app);
   </script>
 </body>
+
 </html>

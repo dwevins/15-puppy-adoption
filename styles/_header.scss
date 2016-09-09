@@ -1,0 +1,18 @@
+.app-header {
+  padding: $gutter;
+  background: $orange;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+  }
+
+  &__button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: $white;
+    font-size: 2rem;
+  }
+}
